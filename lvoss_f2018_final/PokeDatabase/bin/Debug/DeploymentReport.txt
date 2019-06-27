@@ -1,0 +1,59 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       [dbo].[Pokemon]
+       [dbo].[PokemonHints]
+       [dbo].[Types]
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       The type for column pokemonName in table [dbo].[Pokemon] is currently  NVARCHAR (15) NOT NULL but is being changed to 
+         VARCHAR (15) NOT NULL. Data loss could occur.
+       The type for column type in table [dbo].[Pokemon] is currently  NVARCHAR (10) NOT NULL but is being changed to  VARCHAR
+         (10) NOT NULL. Data loss could occur.
+       The type for column weakness in table [dbo].[Pokemon] is currently  NVARCHAR (10) NOT NULL but is being changed to 
+         VARCHAR (10) NOT NULL. Data loss could occur.
+       The type for column pokeHint in table [dbo].[PokemonHints] is currently  NVARCHAR (150) NULL but is being changed to 
+         VARCHAR (150) NOT NULL. Data loss could occur.
+       The type for column pokeName in table [dbo].[PokemonHints] is currently  NVARCHAR (MAX) NULL but is being changed to 
+         VARCHAR (20) NOT NULL. Data loss could occur.
+       The type for column typeImg in table [dbo].[Types] is currently  VARCHAR (20) NOT NULL but is being changed to  VARCHAR
+         (13) NOT NULL. Data loss could occur.
+       The type for column typeName in table [dbo].[Types] is currently  VARCHAR (20) NOT NULL but is being changed to  VARCHAR
+         (10) NOT NULL. Data loss could occur.
+
+** User actions
+     Table rebuild
+       [dbo].[Pokemon] (Table)
+       [dbo].[PokemonHints] (Table)
+       [dbo].[Types] (Table)
+     Create
+       [dbo].[AspNetRoles] (Table)
+       [dbo].[AspNetRoles].[RoleNameIndex] (Index)
+       [dbo].[AspNetUserClaims] (Table)
+       [dbo].[AspNetUserClaims].[IX_UserId] (Index)
+       [dbo].[AspNetUserLogins] (Table)
+       [dbo].[AspNetUserLogins].[IX_UserId] (Index)
+       [dbo].[AspNetUserRoles] (Table)
+       [dbo].[AspNetUserRoles].[IX_UserId] (Index)
+       [dbo].[AspNetUserRoles].[IX_RoleId] (Index)
+       [dbo].[AspNetUsers] (Table)
+       [dbo].[AspNetUsers].[UserNameIndex] (Index)
+       [dbo].[FK_dbo.AspNetUserClaims_dbo.AspNetUsers_UserId] (Foreign Key)
+       [dbo].[FK_dbo.AspNetUserLogins_dbo.AspNetUsers_UserId] (Foreign Key)
+       [dbo].[FK_dbo.AspNetUserRoles_dbo.AspNetRoles_RoleId] (Foreign Key)
+       [dbo].[FK_dbo.AspNetUserRoles_dbo.AspNetUsers_UserId] (Foreign Key)
+
+** Supporting actions
+
+The type for column pokemonName in table [dbo].[Pokemon] is currently  NVARCHAR (15) NOT NULL but is being changed to  VARCHAR (15) NOT NULL. Data loss could occur.
+The type for column type in table [dbo].[Pokemon] is currently  NVARCHAR (10) NOT NULL but is being changed to  VARCHAR (10) NOT NULL. Data loss could occur.
+The type for column weakness in table [dbo].[Pokemon] is currently  NVARCHAR (10) NOT NULL but is being changed to  VARCHAR (10) NOT NULL. Data loss could occur.
+The column pokeHint on table [dbo].[PokemonHints] must be changed from NULL to NOT NULL. If the table contains data, the ALTER script may not work. To avoid this issue, you must add values to this column for all rows or mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+The type for column pokeHint in table [dbo].[PokemonHints] is currently  NVARCHAR (150) NULL but is being changed to  VARCHAR (150) NOT NULL. Data loss could occur.
+The column pokeName on table [dbo].[PokemonHints] must be changed from NULL to NOT NULL. If the table contains data, the ALTER script may not work. To avoid this issue, you must add values to this column for all rows or mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+The type for column pokeName in table [dbo].[PokemonHints] is currently  NVARCHAR (MAX) NULL but is being changed to  VARCHAR (20) NOT NULL. Data loss could occur.
+The type for column typeImg in table [dbo].[Types] is currently  VARCHAR (20) NOT NULL but is being changed to  VARCHAR (13) NOT NULL. Data loss could occur.
+The type for column typeName in table [dbo].[Types] is currently  VARCHAR (20) NOT NULL but is being changed to  VARCHAR (10) NOT NULL. Data loss could occur.
+

@@ -1,0 +1,130 @@
+﻿@model PokeDex_lvoss.Models.Pokemon
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm("Edit", "Pokemon", FormMethod.Post,
+    new { enctype = "multipart/form-data" }))
+{
+    var types = new SelectList(MyConstans.POKEMON_TYPES);
+    var genderArray = new SelectListItem[]
+{
+new SelectListItem { Value = "M", Text = "Male"},
+new SelectListItem { Value = "F", Text = "Female"},
+new SelectListItem { Value = "B", Text = "Both"}
+    };
+    var GenderList = new SelectList(genderArray, "Value", "Text");
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Pokemon</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.pokeId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.pokeId)
+            @Html.HiddenFor(model => model.pokeId)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.pokemonName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.pokemonName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.pokemonName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.type, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.type, types, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.type, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.weakness, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.weakness, types, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.weakness, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.height, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.height, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.height, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.weight, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.weight, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.weight, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.gender, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.gender, GenderList, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.category, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.category, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.category, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.pokeImgName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.pokeImgName, new { htmlAttributes = new { @class = "form-control" } })
+            <input type="file" name="pokemonUpload" class="form-control-file" />
+            @Html.ValidationMessageFor(model => model.pokeImgName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.evolution, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.evolution, new { htmlAttributes = new { @class = "form-control", list = "images" } })
+            @Html.ValidationMessageFor(model => model.evolution, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.maxEvo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.maxEvo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.maxEvo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

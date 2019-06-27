@@ -1,0 +1,74 @@
+﻿@model PokeDex_lvoss.Models.Pokemon
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Pokemon</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.pokeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pokeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.height)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.height)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pokeImgName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pokeImgName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.evolution)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.evolution)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.pokeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

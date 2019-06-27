@@ -1,0 +1,97 @@
+﻿@model IEnumerable<PokeDex_lvoss.Models.Pokemon>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.pokemonName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.weakness)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.height)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.weight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pokeImgName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.evolution)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.maxEvo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.pokemonName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.weakness)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.height)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.weight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.category)
+        </td>
+        <td>
+            @if (!string.IsNullOrWhiteSpace(item.pokeImgName))
+            {
+                string url = Url.Content(
+                    MyConstans.POKEMON_IMAGE_PATH +
+                    item.pokeImgName);
+                <img src="@url" />
+            }
+            else
+            {
+                <h4 class="text-danger">IMAGE N/A</h4>
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.evolution)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.maxEvo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.pokeId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.pokeId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.pokeId })
+        </td>
+    </tr>
+}
+
+</table>

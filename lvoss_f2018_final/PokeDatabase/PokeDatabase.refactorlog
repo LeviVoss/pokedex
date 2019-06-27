@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="2f07bfa7-5a06-4c0f-a8cb-7184db21ec65" ChangeDateTime="12/10/2018 19:41:15">
+    <Property Name="ElementName" Value="[dbo].[Pokemon].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Pokemon]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="pokeId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c57ea864-becb-4b9b-8f8e-376862bd46b9" ChangeDateTime="12/10/2018 19:57:00">
+    <Property Name="ElementName" Value="[dbo].[Pokemon].[strengthId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Pokemon]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="height" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a22b1dd5-47ce-42ee-a78f-9193a8dcbea2" ChangeDateTime="12/10/2018 20:09:09">
+    <Property Name="ElementName" Value="[dbo].[Weaknesses].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Weaknesses]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="weaknessId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5d761ef0-9bdc-46c6-9d63-52b4a46c46df" ChangeDateTime="12/10/2018 20:23:08">
+    <Property Name="ElementName" Value="[dbo].[Strengths].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Strengths]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="strengthId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1f26fe56-761b-4de9-9965-0cb98b9c67a4" ChangeDateTime="12/10/2018 21:02:28">
+    <Property Name="ElementName" Value="[dbo].[Weaknesses].[weaknessId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Weaknesses]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="attributeId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5432c25c-bb18-4bb2-95b8-42e27e4d8a26" ChangeDateTime="12/10/2018 21:02:30">
+    <Property Name="ElementName" Value="[dbo].[Weaknesses].[weaknessName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Weaknesses]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="attributeName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e83bb3cc-2809-45ed-b650-7cecde1cc421" ChangeDateTime="12/10/2018 21:02:34">
+    <Property Name="ElementName" Value="[dbo].[Weaknesses].[weaknessImgName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Weaknesses]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="attributeImgName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6c2ad676-91dd-4188-8b44-9fed642f5f7a" ChangeDateTime="12/14/2018 20:54:32">
+    <Property Name="ElementName" Value="[dbo].[Types].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Types]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="typeId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2db05e9f-0d32-437f-9a98-1ede774445a8" ChangeDateTime="12/14/2018 21:01:41">
+    <Property Name="ElementName" Value="[dbo].[Types].[typeDestination]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Types]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="typeImg" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="97381325-afe5-46a7-a9e1-54183fe2053d" ChangeDateTime="12/17/2018 21:06:11">
+    <Property Name="ElementName" Value="[dbo].[Pokemon].[max]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Pokemon]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="maxEvo" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="51f17d16-54f3-4d2c-8721-359830bc54ad" ChangeDateTime="12/18/2018 15:17:35">
+    <Property Name="ElementName" Value="[dbo].[PokemonHints].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PokemonHints]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="hintId" />
+  </Operation>
+</Operations>

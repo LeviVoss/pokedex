@@ -1,0 +1,249 @@
+﻿@model PokeDex_lvoss.Models.Pokemon
+@using Microsoft.AspNet.Identity;
+@{
+    ViewBag.Title = "PokeDexView";
+
+    bool isLoggedIn = Request.IsAuthenticated;
+    string userId = User.Identity.GetUserId();
+}
+
+@Html.HiddenFor(model => model.pokeId, new { id = "pokemonId" })
+<div hidden id="userId">@userId</div>
+
+<div id="pokedex">
+    <div id="left">
+        <div id="logo"></div>
+        <div id="bg_curve1_left"></div>
+        <div id="bg_curve2_left"></div>
+        <div id="curve1_left">
+            <div id="buttonGlass">
+                <div id="reflect"> </div>
+            </div>
+            <div id="miniButtonGlass1"></div>
+            <div id="miniButtonGlass2"></div>
+            <div id="miniButtonGlass3"></div>
+        </div>
+        <div id="curve2_left">
+            <div id="junction">
+                <div id="junction1"></div>
+                <div id="junction2"></div>
+            </div>
+        </div>
+        <div id="screen">
+            <div id="topPicture">
+                <div id="buttontopPicture1"></div>
+                <div id="buttontopPicture2"></div>
+            </div>
+
+
+            <div id="picture">
+
+                @*
+        @if (!string.IsNullOrWhiteSpace(Model.pokeImgName))
+        {
+            string url = Url.Content(
+                MyConstans.POKEMON_IMAGE_PATH +
+                Model.pokeImgName);
+            <img id="pokeImg" src="@url" height="160" width="160" alt="@Model.pokemonName" />
+        }
+        else
+        {
+            <h4 class="text-danger">IMAGE N/A</h4>
+        }
+                *@
+
+            </div>
+
+
+            <div id="buttonbottomPicture"></div>
+            <div id="speakers">
+                <div class="sp"></div>
+                <div class="sp"></div>
+                <div class="sp"></div>
+                <div class="sp"></div>
+            </div>
+        </div>
+        <div id="bigbluebutton"></div>
+        <div id="barbutton1" title="Male"></div>
+        <div id="barbutton2" title="Female"></div>
+
+        <div id="cross">
+            @*prev*@
+            <div id="leftcross" title="Previous pokemon" onclick="prevPokemon()">
+                <div id="leftT"></div>
+            </div>
+            <div id="topcross" title="Up an evolution" onclick="upPokemon()">
+                <div id="upT"></div>
+            </div>
+            @*Next*@
+            <div id="rightcross" title="Next pokemon" onclick="nextPokemon()">
+                <div id="rightT"></div>
+            </div>
+            <div id="midcross">
+                <div id="midCircle"></div>
+            </div>
+            <div id="botcross" title="Down an evolution" onclick="downPokemon()">
+                <div id="downT"></div>
+            </div>
+        </div>
+
+    </div>
+    <div id="right">
+        <div id="stats">
+            <div class="col-md-6">
+
+                @*
+                <strong>Pokemon ID :</strong><p id="screenId">#@Model.pokeId</p>
+                <strong>Height :</strong><p id="pokeHeight">@Model.height.ToString("0.00") m</p>
+                <strong>Weight :</strong><p id="pokeWeight">@Model.weight kg</p>
+                *@
+
+            </div>
+            <div class="col-md-6">
+
+                @*
+                <strong>Name :</strong><p id="pokeName">@Model.pokemonName</p>
+                <strong>Type :</strong><p id="pokeType">@Model.type</p>
+                <strong>Weakness :</strong><p id="pokeWeakness">@Model.weakness</p>
+                *@
+
+            </div>
+        </div>
+        @*19 types*@
+        @*Outline green for type and red for weakness*@
+        <div id="blueButtons1">
+            <div class="container-fluid">
+
+                @*
+                @foreach (PokeDex_lvoss.Models.Type type in ViewBag.types)
+                {
+                    @*Make buttons
+                    <img class="pokeTypeButtons" id="@type.typeName" src="@Url.Content(MyConstans.TYPE_IMAGE_PATH + type.typeImg)" alt="@type.typeName" />
+                }
+                *@
+
+            </div>
+        </div>
+
+        <div id="miniButtonGlass4"></div>
+        <div id="miniButtonGlass5"></div>
+        <div id="barbutton3"></div>
+        <div id="barbutton4"></div>
+        <div id="yellowBox1"></div>
+        <div id="yellowBox2"></div>
+        <div id="bg_curve1_right"></div>
+        <div id="bg_curve2_right"></div>
+        <div id="curve1_right"></div>
+        <div id="curve2_right"></div>
+    </div>
+</div>
+<div class="col-lg-2" id="displayHint" style="background-color:#5e0000; left:15em; width:50em; padding-top: 1em;">
+    <button type="button" class="btn-danger" style="width:100%; margin-bottom: 1em;">Hints</button>
+</div>
+<div class="col-lg-2 text-warning" id="hintPanel" style="background-color:#5e0000; left:15em; width:50em; padding-top: 1em;">
+
+    @*send hints here*@
+    @if (isLoggedIn)
+    {
+        <textarea rows="3" cols="100" id="hintText" style="resize:horizontal" placeholder="Enter in your own hint..."></textarea>
+        <button type="button" class="btn-warning" style="padding:.25em; float:right;" onclick="makeNewHint()">Hints</button>
+        <p class="text-danger" id="validationHint" hidden>If you want to enter a hint you must enter something.</p>
+    }
+
+    @*table of hints go here*@
+    <table class="table-hover" id="hintTable">
+        <tr>
+            <th>
+                Hint
+            </th>
+        </tr>
+        @foreach (var item in ViewBag.hints)
+        {
+        <tr>
+            <td>
+                @item.pokeHint
+            </td>
+        </tr>
+        }
+        
+    </table>
+</div>
+
+@section scripts{
+<script>
+    $("#hintPanel").hide();
+
+    //To display Poke hints
+    $("#displayHint").click(function () {
+        if ($("#hintPanel:first").is(":hidden")) {
+            $("#hintPanel").slideDown("fast");
+        } else {
+            $("#hintPanel").hide();
+        }
+    });
+
+    function makeNewHint() {
+        var currPokeId = parseInt($('#pokemonId').val());
+        var currName = $('#pokeName').html();
+        var currHint = $('#hintText').val();
+        var userId = $('#userId').html();
+
+        if (currHint == "") {
+            $('#validationHint').attr("hidden", false);
+        }
+        else {
+            $.post(
+                '@Url.Action("AddHint", "Pokemon")',
+                { currPokeId: currPokeId, currName: currName, currHint: currHint, userId : userId },
+                function (data) {
+                    $('#validationHint').attr("hidden", true);
+                    $("#hintTable").append(`<tr><td>${currHint}</td></tr>`);
+                })
+        }
+    }
+
+
+    //D-Pad Controls to switch pokemon
+    function prevPokemon() {
+        var pokeId = parseInt($('#pokemonId').val());
+        FindPokemon(pokeId, "prev");
+    }
+    function nextPokemon() {
+        var pokeId = parseInt($('#pokemonId').val());
+        FindPokemon(pokeId, "next");
+    }
+    function upPokemon() {
+        var pokeId = parseInt($('#pokemonId').val());
+        FindPokemon(pokeId, "up");
+    }
+    function downPokemon() {
+        var pokeId = parseInt($('#pokemonId').val());
+        FindPokemon(pokeId, "down");
+    }
+
+    // send/receive Pokemon
+    function FindPokemon(pokeId, whichPokemon) {
+        $.post(
+            '@Url.Action("FindPokemon", "Pokemon")',
+            { pokeId: pokeId, whichPokemon: whichPokemon },
+            function (data)
+            {
+                $('#pokemonId').val(data.pokemon.pokeId);
+                $('#screenId').html("#" + data.pokemon.pokeId);
+                $('#pokeName').html(data.pokemon.pokemonName);
+                $('#pokeImg').attr("src", data.Img).attr("alt", data.pokemon.pokemonName);
+                $('#pokeHeight').html(data.pokemon.height + " m");
+                $('#pokeWeight').html(data.pokemon.weight + " kg");
+                $('#pokeType').html(data.pokemon.type);
+                $('#pokeWeakness').html(data.pokemon.weakness);
+                var type = data.pokemon.type;
+                $('#' + type).addClass("border border-success");
+                $("#hintTable").html(`<tr><th>Hint</th></tr>`);
+                $.each(data.pokeHints, function (index, hint) {
+                    $("#hintTable").append(`<tr><td>${hint}</td></tr>`);
+                });
+            }
+        );
+    }
+</script>
+}

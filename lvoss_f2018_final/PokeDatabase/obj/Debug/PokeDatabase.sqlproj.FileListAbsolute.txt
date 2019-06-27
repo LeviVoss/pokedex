@@ -1,0 +1,9 @@
+D:\Users\Optrxn\Coding\mvc_f2018_lvoss_final\lvoss_f2018_final\PokeDatabase\bin\Debug\PokeDatabase.dacpac
+D:\Users\Optrxn\Coding\mvc_f2018_lvoss_final\lvoss_f2018_final\PokeDatabase\bin\Debug\PokeDatabase.dll
+D:\Users\Optrxn\Coding\mvc_f2018_lvoss_final\lvoss_f2018_final\PokeDatabase\bin\Debug\PokeDatabase.pdb
+D:\Users\Optrxn\Coding\mvc_f2018_lvoss_final\lvoss_f2018_final\PokeDatabase\obj\Debug\PokeDatabase.dll
+D:\Users\Optrxn\Coding\mvc_f2018_lvoss_final\lvoss_f2018_final\PokeDatabase\obj\Debug\PokeDatabase.pdb
+D:\Users\Optrxn\Coding\mvc_f2018_lvoss_final\lvoss_f2018_final\PokeDatabase\obj\Debug\Model.xml
+D:\Users\Optrxn\Coding\mvc_f2018_lvoss_final\lvoss_f2018_final\PokeDatabase\obj\Debug\refactor.xml
+D:\Users\Optrxn\Coding\mvc_f2018_lvoss_final\lvoss_f2018_final\PokeDatabase\obj\Debug\postdeploy.sql
+D:\Users\Optrxn\Coding\mvc_f2018_lvoss_final\lvoss_f2018_final\PokeDatabase\obj\Debug\predeploy.sql
